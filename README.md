@@ -3,12 +3,12 @@
 FastAPI service (Python 3.13, uv, SQLAlchemy 2).
 
 ```bash
-uv sync
+UV_PYTHON_DOWNLOADS=never uv sync --frozen --python 3.13
 cp .env.example .env         # then set CARAPI_API_KEYS (see Auth); loads seed/cars.csv
-uv run carapi                 # dev server on :8000 (reload)
-uv run pytest
-uv run ruff check . && uv run ruff format --check .
-uv run mypy src tests
+uv run --no-sync carapi      # dev server on :8000 (reload)
+uv run --no-sync pytest
+uv run --no-sync ruff check . && uv run --no-sync ruff format --check .
+uv run --no-sync mypy src tests
 ```
 
 ## Config
